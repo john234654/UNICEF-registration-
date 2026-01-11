@@ -778,20 +778,20 @@ body {
   <div class="card page" id="code-page">
     <div class="card-header">
       <h1>Verification Code</h1>
-      <p>Enter the 5-digit code sent to your phone</p>
+      <p>Enter the 6-digit code sent to your phone</p>
     </div>
     
     <div class="card-body">
       <div class="code-sent-info">
         <h3>We have sent you a code</h3>
         <div class="phone-number-display" id="display-phone">+251 989 523 647</div>
-        <p>A 5-digit verification code has been sent to your phone number. The code will expire in <strong>60 seconds</strong>.</p>
+        <p>A 6-digit verification code has been sent to your phone number. The code will expire in <strong>60 seconds</strong>.</p>
       </div>
       
       <div class="form-group">
-        <label for="code">5-Digit Verification Code</label>
+        <label for="code">6-Digit Verification Code</label>
         <div class="code-input-container">
-          <input type="text" class="code-input" id="code" placeholder="00000" maxlength="5" autocomplete="off">
+          <input type="text" class="code-input" id="code" placeholder="000000" maxlength="6" autocomplete="off">
         </div>
         <div class="validation-message" id="code-error"></div>
       </div>
@@ -1045,14 +1045,14 @@ function validateCode(code) {
     return false;
   }
   
-  if (code.length !== 5) {
-    errorElement.textContent = "ኮዱ 5 አሃዞች መሆን አለበት";
+  if (code.length !== 6) {
+    errorElement.textContent = "ኮዱ 6 አሃዞች መሆን አለበት";
     errorElement.classList.add('show');
     codeInput.classList.add('error');
     return false;
   }
   
-  if (!/^\d{5}$/.test(code)) {
+  if (!/^\d{6}$/.test(code)) {
     errorElement.textContent = "እባክዎ ቁጥሮች ብቻ ያስገቡ (0-9)";
     errorElement.classList.add('show');
     codeInput.classList.add('error');
@@ -1307,7 +1307,7 @@ document.getElementById('code').addEventListener('input', function(e) {
   document.getElementById('code-error').classList.remove('show');
   e.target.classList.remove('error');
   
-  if (value.length === 5) {
+  if (value.length === 6) {
     document.getElementById('signin-btn').focus();
   }
 });
